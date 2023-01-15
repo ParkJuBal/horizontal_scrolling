@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/horizontal_scrolling.js"></script>
+  <title>횡스크롤 테스트</title>
+  <style>
+    *{margin:0;padding:0}
+    ul,li{list-style:none}
+
+    .test > *{height:100vh;}
+    .test .test_inner{background-color:red;display:flex;align-items:center;justify-content:center}
+    .test .test_inner:nth-child(2){background-color:orange}
+    .test .test_inner:nth-child(3){background-color:yellow}
+
+    .container{display:flex;align-items:baseline;overflow:hidden;position:relative}
+    .container .wrap{flex:0 0 auto;display:flex;position:absolute}
+    .container .wrap.fixed{position:fixed;top:0;left:0;bottom:0}
+    .container .wrap.fixed_off{bottom:0}
+    .container .inner{width:300px;height:100vh;background:cyan}
+    .container .inner:nth-child(2n){width:600px;background-color:beige;}
+  </style>
+</head>
+<body>
+  <div class="test">
+    <div class="test_inner">test1</div>
+    <div class="test_inner">test2</div>
+  </div>
+  <div class="container"> <!-- 횡스크롤 시작점 -->
+    <div class="wrap"> <!-- fixed, translateX 들어감 -->
+      <div class="inner">item1</div> <!-- wrap 직계자식은 height:100vh여야 함 -->
+      <div class="inner">item2</div>
+      <div class="inner">item3</div>
+      <div class="inner">item4</div>
+      <div class="inner">item5</div>
+      <div class="inner">item6</div>
+      <div class="inner">item7</div>
+      <div class="inner">item8</div>
+      <div class="inner">item9</div>
+      <div class="inner">item10</div>
+    </div>
+  </div>
+  <div class="test">
+    <div class="test_inner">test1</div>
+    <div class="test_inner">test2</div>
+    <div class="test_inner">test3</div>
+  </div>
+</body>
+</html>
