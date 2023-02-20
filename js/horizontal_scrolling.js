@@ -1,14 +1,14 @@
 $(document).ready(function(){
 
-  $(window).on('load resize',function(){
+  $(window).on('load',function(){
     horizontalScrolling();
-    // let timer;
-    // $(window).on('resize',function(){
-    //   clearTimeout(timer);
-    //   timer = setTimeout(function(){
-    //     horizontalScrolling();
-    //   },200)
-    // });
+    let timer;
+    $(window).on('resize',function(){
+      clearTimeout(timer);
+      timer = setTimeout(function(){
+        horizontalScrolling();
+      },200)
+    });
   });
   
 });
@@ -21,8 +21,8 @@ function horizontalScrolling(){
   
   let contHeight = contWidth - winW + winH; // container width - 윈도우 너비 + 윈도우 높이값을 변수로 지정
   container.style.height = contHeight + 'px'; // 위 변수를 container 높이값으로 지정
-
-  document.addEventListener('scroll', function() {
+  
+  document.addEventListener('scroll', function() { // ★★★ 문제1. 리사이징될때마다 이 이벤트리스너가 중첩돼서 가끔 함수가 안먹힘 ★★★
     let containerOffTop = container.offsetTop; // 횡스크롤 시작점
     let winTop = window.scrollY || document.documentElement.scrollTop; // 전자는 IE에서 작동하지 않음
   
@@ -47,7 +47,7 @@ function horizontalScrolling(){
       container.firstElementChild.classList.remove('fixed','fixed_off');
       container.firstElementChild.style.transform = 'translateX(' + 0 + 'px)'; // 화면이 container 영역 위로 갔을 때 translateX값을 컨테이너 좌측값으로 맞춤
     }
-
+    
   });
 }
 
