@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="./js/jquery-3.6.0.min.js"></script>
-  <script src="./js/horizontal_scrolling.js"></script>
+  <script src="../js/jquery-3.6.0.min.js"></script>
+  <script src="../js/horizontal_scrolling.js"></script>
   <title>횡스크롤 테스트</title>
   <style>
     *{margin:0;padding:0}
@@ -22,6 +22,8 @@
     .container .wrap.fixed_off{bottom:0}
     .container .inner{width:300px;height:100vh;background:cyan}
     .container .inner:nth-child(2n){width:600px;background-color:beige;}
+    .container .inner:last-child{position:relative}
+    .container .inner:last-child::after{content:"끝부분";position:absolute;bottom:0;right:0;font-size:20px;}
   </style>
 </head>
 <body>
